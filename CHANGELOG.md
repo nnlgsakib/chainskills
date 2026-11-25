@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.1 — 2026-11-25
+
+- Fix: the `stack-substrate-sdk` description contained `: `, which is invalid plain YAML. Strict parsers (the `skills` CLI) skipped the skill. Reworded.
+- `check_skill.py` now rejects frontmatter values that aren't valid plain YAML (`: `, ` #`, leading indicators), so this can't ship again.
+
 ## 0.4.0 — 2026-11-25
 
 Framework-specific help for every major stack, not just Cosmos. Six new adapters, each researched from primary sources (releases and official docs, 2026-11-25) and passing `check_adapter.py` + `check_skill.py`:

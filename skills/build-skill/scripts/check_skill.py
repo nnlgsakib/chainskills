@@ -48,6 +48,19 @@ def check(path, local=False, max_age_days=180, today=None):
     if fm is None:
         return ["SKILL.md has no YAML frontmatter (--- ... ---)"], warns
 
+    # strict YAML: unquoted plain scalars must not contain ": " or " #" or start with a YAML indicator.
+    # Lenient parsers (some agents) accept them; strict ones (e.g. the `skills` CLI) skip the whole skill.
+    raw = re.match(r"^---\r?\n(.*?)\r?\n---", text, re.S).group(1)
+    for line in raw.splitlines():
+        m = re.match(r"^([A-Za-z_-]+):\s(.*)$", line)
+        if not m:
+            continue
+        val = m.group(2)
+        if val[:1] in "\"'":
+            continue
+        if ": " in val or " #" in val or (val[:1] and val[:1] in "&*!|>%@`{[,?-"):
+            errs.append(f"frontmatter '{m.group(1)}' is not valid plain YAML (contains ': ' or ' #' or starts with an indicator); reword or quote it")
+
     name, desc = fm.get("name", ""), fm.get("description", "")
     if not NAME_RE.match(name) or len(name) > 64:
         errs.append(f"name '{name}': 1-64 chars, lowercase letters/digits/single hyphens, no leading/trailing hyphen")
@@ -142,6 +155,17 @@ def selftest():
         joined = " ".join(errs + warns)
         for frag in ("name 'Bad_Skill'", "referenced file does not exist", "layer prefix", "missing README.md", "days ago", "harness-specific"):
             assert frag in joined, (frag, errs, warns)
+
+        # strict-YAML trap: "key: value" inside an unquoted description
+        y = os.path.join(d, "protocol-yaml")
+        os.makedirs(y)
+        for f in ("README.md", "LICENSE"):
+            open(os.path.join(y, f), "w").write("x")
+        open(os.path.join(y, "SKILL.md"), "w", encoding="utf-8").write(
+            "---\nname: protocol-yaml\ndescription: Covers contracts on the hub (pallet-revive: REVM) for any chain. "
+            "Use whenever the user asks about hub contracts or revive.\nlicense: MIT\n---\n# Y\n## Sources (verified 2026-11-01)\n")
+        errs, _ = check(y, today=datetime.date(2026, 11, 25))
+        assert any("not valid plain YAML" in e for e in errs), errs
 
         # --local relaxes suite rules
         errs_l, _ = check(b, local=True, today=datetime.date(2026, 11, 25))

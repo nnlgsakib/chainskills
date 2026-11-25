@@ -1,6 +1,6 @@
 ---
 name: stack-substrate-sdk
-description: Build and operate a chain with the Polkadot SDK (Substrate, FRAME, Cumulus) — parachains on Polkadot via coretime (bulk or on-demand), solo chains, runtime development with FRAME pallets, polkadot-omni-node and chain-spec-builder, Pop CLI, staking/collator pallets, weights and benchmarking (frame-omni-bencher), forkless runtime upgrades, testing with zombienet-sdk and chopsticks, and smart contracts on Polkadot Hub (pallet-revive: REVM + PolkaVM, Solidity via resolc). Use whenever the user works with Substrate, Polkadot SDK, FRAME, parachains, coretime, runtime upgrades, pallets, Polkadot Hub contracts, or chose Polkadot SDK in design-stack-selection.
+description: Build and operate a chain with the Polkadot SDK (Substrate, FRAME, Cumulus) — parachains on Polkadot via coretime (bulk or on-demand), solo chains, runtime development with FRAME pallets, polkadot-omni-node and chain-spec-builder, Pop CLI, staking/collator pallets, weights and benchmarking (frame-omni-bencher), forkless runtime upgrades, testing with zombienet-sdk and chopsticks, and smart contracts on Polkadot Hub (pallet-revive with REVM + PolkaVM, Solidity via resolc). Use whenever the user works with Substrate, Polkadot SDK, FRAME, parachains, coretime, runtime upgrades, pallets, Polkadot Hub contracts, or chose Polkadot SDK in design-stack-selection.
 license: MIT
 ---
 
