@@ -7,6 +7,13 @@
 - **Scripts** are stdlib-only Python with a `--selftest` (or `selftest`) mode that must pass.
 - **Shared state**: skills read and write the `CHAIN.md` / `docs/` layout defined in `blockchain-dev/references/chain-md.md`.
 
+## Adding a skill
+Use the `build-skill` skill (template in `skills/build-skill/assets/skill-template/`), then validate:
+
+```bash
+python3 skills/build-skill/scripts/check_skill.py skills/<new-skill>
+```
+
 ## Adding a stack adapter
 Use the `build-stack-adapter` skill. It copies `build-stack-adapter/assets/adapter-template/`, and you validate with:
 
@@ -17,6 +24,7 @@ python3 skills/build-stack-adapter/scripts/check_adapter.py skills/stack-<family
 ## Before opening a PR
 ```bash
 for s in skills/*/scripts/*.py; do python3 "$s" --selftest 2>/dev/null || python3 "$s" selftest; done
+python3 skills/build-skill/scripts/check_skill.py skills/*
 python3 skills/build-stack-adapter/scripts/check_adapter.py skills/stack-*
 claude plugin validate . --strict      # if you have Claude Code
 ```

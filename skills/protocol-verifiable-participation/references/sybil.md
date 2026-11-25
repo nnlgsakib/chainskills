@@ -13,7 +13,7 @@ One operator running many identities is only a problem if it earns more, or gain
 | Reputation with decay | Long-lived good behaviour raises weight | reducing the impact of new sybils | slow onboarding; can be farmed |
 | Proof of personhood | One human, one credential | per-person programs (airdrops, grants, one-person-one-vote) | wrong tool for infrastructure (one person can legitimately run many machines). Options as of 2026-11-25: Human Passport (formerly Gitcoin Passport, Holonym since Feb 2025; aggregated stamps/ML/ZK, no biometrics required) ✔; World ID (iris via Orb) ✔. Weigh privacy, coverage and gaming risk |
 
-## Default recipe for a community node layer
+## Default recipe for a permissionless service layer
 1. Rewards ∝ verified work units (rung 1–3 only).
 2. A minimum bond per node, enough that a node's maximum epoch reward is far below its slashable bond.
 3. Stake-weighted, capped committee selection with randomness revealed after lock.

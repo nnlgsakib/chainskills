@@ -35,4 +35,4 @@ Also consider:
 
 ## Hybrid designs
 
-Many ideas combine classes, e.g. "BFT core validators + permissionless community nodes doing verification/DA". Treat the extra roles as **separate components layered on a standard class**, not as a new consensus. The core class should be fully safe without the extra layer; the extra layer adds verification, data availability or decentralisation on top, and its failure must not halt the chain.
+Many ideas combine classes. Examples: a BFT L1 plus a permissionless verifier or DA-sampling layer; a DePIN chain with validators plus hardware operators; a rollup plus a restaked oracle committee; a PoA consortium chain plus a public settlement bridge. Treat the extra roles as **separate components layered on a standard class**, not as a new consensus. The core class should be fully safe without the extra layer; the extra layer adds verification, data availability or decentralisation on top, and its failure must not halt the chain.

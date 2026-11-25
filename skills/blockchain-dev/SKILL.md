@@ -1,6 +1,6 @@
 ---
 name: blockchain-dev
-description: Entry point for any blockchain project on any stack — turns an idea into a production chain by routing each step to the right chainskills skill (design, protocol mechanisms, smart contracts, node software, stack adapters for Cosmos SDK / EVM L1 / OP Stack / Arbitrum Orbit / ZK rollups / Substrate / custom, security, testing, upgrades, launch, operations). Use this skill whenever the user wants to design, build, extend, audit, launch or operate a blockchain, L1, L2, rollup, appchain, validator network, staking system, bridge, consensus protocol or chain-level smart contracts — or pastes a chain whitepaper/idea — regardless of framework, and even if they only say "my chain", "my protocol" or "make it production ready".
+description: Entry point for any blockchain project on any stack — turns an idea into a production chain by routing each step to the right chainskills skill (design, protocol mechanisms, smart contracts, node software, stack adapters for Cosmos SDK / EVM L1 / OP Stack / Arbitrum Orbit / ZK rollups / Substrate / custom, security, testing, upgrades, launch, operations). Works for new ideas and for existing codebases on any stack. Use this skill whenever the user wants to design, build, extend, audit, launch or operate a blockchain, L1, L2, rollup, appchain, validator network, staking system, bridge, consensus protocol or chain-level smart contracts — or pastes a chain whitepaper/idea — regardless of framework, and even if they only say "my chain", "my protocol" or "make it production ready".
 license: MIT
 ---
 
@@ -10,10 +10,11 @@ Stack-agnostic entry point of the chainskills suite. It does not design or code 
 
 ## 1. Find the project state
 
-Look for `CHAIN.md` at the project root (also check `docs/`).
+Look for `CHAIN.md` at the project root (also check `docs/`). If the repo has code, also run `python3 <this-skill-dir>/scripts/detect_stack.py <repo-root>` to see which stack(s) it uses and which skills cover them.
 
 - **Found** → read it. Phase, stack, components, decisions and open questions tell you where to continue. Read the linked spec file for the component being worked on, nothing more.
 - **Not found, user is starting or describing a chain project** (an idea, a whitepaper, "I want to build...") → create it from `assets/CHAIN.template.md` and the docs layout in `references/chain-md.md`, save the user's idea verbatim to `docs/idea.md`, then route to `design-protocol`.
+- **Not found, existing codebase** → follow `references/existing-projects.md`. Adapt to the project's conventions, route single tasks straight to the topic skill plus the detected stack adapter, and offer (never force) to bootstrap CHAIN.md from the code for larger efforts.
 - **Not found, quick question** ("how does slashing work in Cosmos?", "fix this Solidity staking bug") → don't create project files. Route straight to the topic skill and answer.
 
 ## 2. Pick the mode
@@ -43,7 +44,9 @@ A request can touch several skills. Load them in layer order — design → prot
 
 1. Installed → invoke it by name, using whatever mechanism your agent provides. In Claude Code as a plugin it's `/chainskills:<skill-name>`; installed standalone it's `/<skill-name>`. Agents that load skills automatically pick them up from their descriptions.
 2. Not invocable but present on disk → read `<this-skill-dir>/../<skill-name>/SKILL.md` and follow it. All chainskills skills are siblings under the same `skills/` folder.
-3. Missing (planned but not built yet) → say so in one line, then do the work with general knowledge **using the same output contract**: results into `docs/spec/`, decisions as ADRs (`assets/ADR.template.md`), status into `CHAIN.md`. Mark the output "unverified — no skill".
+3. Missing (planned but not built yet, or a need no skill covers) → say so in one line, then:
+   - **Recurring or important need** (a framework without an adapter, a mechanism, an ops workflow, project-specific conventions): offer `build-skill`, which researches and creates the skill, as a suite skill or a project-local one, so the next request is covered. For a missing stack adapter, `build-skill` hands over to `build-stack-adapter`.
+   - **One-off need**: do the work with general knowledge **using the same output contract** (results into the project's spec location, decisions as ADRs from `assets/ADR.template.md`, status into `CHAIN.md` if it exists). Mark the output "unverified — no skill".
 
 ## 5. Phase gates (production mode)
 

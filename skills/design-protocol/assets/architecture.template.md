@@ -36,7 +36,7 @@ What happens every block, every epoch (rotation, rewards, assignments).
 |---|---|---|
 | > 1/3 consensus power offline | | |
 | Network partition | | |
-| Extra-layer nodes (verifiers, community nodes) disappear | | |
+| Extra-layer participants (verifiers, operators, oracles, samplers) disappear | | |
 | Malicious majority in a committee | | |
 | Bridge / DA layer unavailable | | |
 | Key compromise of privileged role | | |

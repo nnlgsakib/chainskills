@@ -1,0 +1,31 @@
+---
+name: <skill-name>
+description: <What the skill does, specifically (mechanisms, tools, standards covered), and when to use it. List the phrases and situations that should trigger it, including ones where the user doesn't name the topic directly. Max 1024 chars.>
+license: MIT
+---
+
+# <Skill name>
+
+<One paragraph: the layer (L1 design / L2 protocol / L3 build / L4 stack / L5 quality / L6 ops / extra, or project-local), what it produces, and which skills it hands work to and from.>
+
+Inputs: <what it reads, e.g. CHAIN.md sections, docs/spec/<component>.md, the detected stack>. Shared state rules: `../blockchain-dev/references/chain-md.md` (suite skills only).
+
+| Reference | Read when |
+|---|---|
+| `references/<topic>.md` | <the step that needs it> |
+
+## Workflow
+
+### 1. <First step>
+<Imperative instructions. Explain why each step matters, so the agent can handle cases the text doesn't cover.>
+
+### 2. <Next step>
+
+### N. Hand off
+<Outputs: files written, IDs (R-, INV-, P-, ADR-), CHAIN.md updates, next skill.>
+
+## Rules
+- <A few durable principles, each with its reason.>
+
+## Sources (verified YYYY-MM-DD)
+<Primary sources (official docs, repos at a tag, specs, release notes) for every version-sensitive fact. Mark checked facts ✔ in the text and unconfirmed ones (unverified).>

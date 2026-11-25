@@ -33,8 +33,8 @@ Pick a model (`references/issuance-models.md`): disinflation toward a terminal r
 Decide where fees go: burn (as in EIP-1559), validators, treasury, or service roles. Burning offsets issuance, while distribution pays security. With low fees early on, issuance carries the security budget, so plan the transition.
 
 ### 5. Reward split across roles
-Example from an idea: 50% validators, 25% delegators, 15% community services, 10% reserve. Make the split concrete:
-- **Validator vs delegator shares** interact with commission. Decide whether "validators 50%" includes rewards on their own stake, and whether commission applies to the delegator pool. If unclear, implement as: the staker pool (validators + delegators) is distributed pro rata to stake, validators take commission from their delegators' part, and a separate validator bonus is paid for performance. Write the formula in the spec.
+Designs often name percentages per role, e.g. *validators X%, delegators Y%, service operators Z%, treasury W%*, or *sequencer fees 60% to the treasury and 40% burned*. Make every split concrete:
+- **Validator vs delegator shares** interact with commission. Decide whether a "validators X%" share includes rewards on their own stake, and whether commission applies to the delegator pool. If unclear, implement as: the staker pool (validators + delegators) is distributed pro rata to stake, validators take commission from their delegators' part, and a separate validator bonus is paid for performance. Write the formula in the spec.
 - The **service-node share** is paid only for verified work. Unspent budget goes to reserve or is burned, never to unverified claims.
 - **Reserve/treasury**: spending rules and caps belong in `protocol-governance`.
 - Percentages are parameters, not constants.

@@ -53,3 +53,6 @@ The specs are stack-neutral, so a migration only touches placement and code. Wri
 
 ## Output to the user
 Report: filters and what they removed, a top-3 table with scores, the recommendation and what it depends on, the placement table, the ADR links, and the next step.
+
+## Sources (verified 2026-11-25)
+Stack facts and links are in `references/stack-catalog.md` → Sources: Cosmos release families and upgrade guides, OP Stack Upgrade 20 / Kona / OP Succinct, Arbitrum BoLD, ZKsync Airbender, Agglayer CDK, Taiko preconfirmations, Malachite, and Avalanche ACP-77/99. Re-verify before recommending a stack.

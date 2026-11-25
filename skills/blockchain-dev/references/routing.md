@@ -14,7 +14,7 @@ Lower layers never depend on higher ones. `protocol-*` and `design-*` never assu
 L0  blockchain-dev                     router (this skill)
 L1  design-*                           idea → architecture → spec → stack decision
 L2  protocol-*                         stack-neutral mechanisms
-L3  build-*                            implementation surfaces (contracts, node software, new adapters)
+L3  build-*                            implementation surfaces (contracts, node software) and suite extension (new skills, new adapters)
 L4  stack-*                            stack adapters (framework-specific)
 L5  quality-*                          security, testing, formal verification
 L6  ops-*                              upgrades, infrastructure, data access, launch, readiness
@@ -48,13 +48,15 @@ L6  ops-*                              upgrades, infrastructure, data access, la
 | token supply, inflation, fees, reward split, treasury, simulations | `protocol-tokenomics` |
 | governance, proposals, voting, emergency powers, treasury spending | `protocol-governance` |
 | randomness, VRF, beacons, committee selection, lotteries | `protocol-randomness` |
-| rewards for useful work, community nodes, proof of service, sybil resistance | `protocol-verifiable-participation` |
+| rewards for useful work, service/operator/verifier nodes, DePIN, oracles, proof of service, sybil resistance | `protocol-verifiable-participation` |
 | data availability, erasure coding, sampling, DA layers, history | `protocol-data-availability` |
 | peers, gossip, libp2p, DDoS, sentry topology | `protocol-p2p` |
 | bridges, IBC, light clients, cross-chain messaging | `protocol-interop` |
 | Solidity/Rust/Move contracts, validator-set or system contracts, proxies | `build-smart-contracts` |
 | node client, light client, sequencer, prover, relayer, oracle, keeper | `build-node-software` |
 | "add support for <framework>", missing adapter, refresh adapter | `build-stack-adapter` |
+| "make a skill for X", recurring need with no skill, capture this team's conventions, refresh stale skill facts | `build-skill` |
+| existing repo, "what stack is this?", onboarding onto a codebase | `blockchain-dev` → `references/existing-projects.md` (+ `scripts/detect_stack.py`) |
 | framework commands/code (Ignite, op-node, Nitro, Substrate, geth fork...) | matching `stack-*` |
 | threat model, keys, remote signer, audits, fuzzing | `quality-security` |
 | TLA+, Quint, model checking, proofs of protocol safety | `quality-formal-verification` |

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0 — 2026-11-25
+
+- **Any project, any stack**: example content is now project-neutral. `blockchain-dev` supports existing codebases (`references/existing-projects.md`), adapts to the project's conventions, and only bootstraps `CHAIN.md` on request.
+- **New `blockchain-dev/scripts/detect_stack.py`**: detects 20+ stacks from manifests (Cosmos SDK, Ignite, Cosmos EVM, CosmWasm, CometBFT apps, OP Stack, Arbitrum Nitro/Stylus, Avalanche, geth/reth, Substrate, Malachite, Rust ABCI, Solana/Anchor, Sovereign SDK, Move, Foundry, Hardhat, zkSync, Fabric) and maps them to skills.
+- **New skill `build-skill`**: the suite extends itself. It creates suite skills at any layer or project-local skills for any Agent Skills tool, and refreshes stale skills. Includes a template and `check_skill.py` (Agent Skills format, suite conventions, stale-source warnings).
+- The router offers `build-skill` when no skill covers a recurring need.
+
 ## 0.1.0 — 2026-11-25
 
 First public release: 20 skills.

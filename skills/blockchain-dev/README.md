@@ -4,7 +4,9 @@ The router for the **chainskills** suite. Give it any blockchain idea on any sta
 
 ## What it does
 
-- Finds or creates `CHAIN.md` and the `docs/` layout in your chain repo.
+- Works on new ideas and existing codebases: `scripts/detect_stack.py` detects the stack, and `references/existing-projects.md` adapts to the repo's conventions.
+- Finds or creates `CHAIN.md` and the `docs/` layout (created only for new projects, or on request).
+- When no skill fits a recurring need, offers `build-skill` to create one.
 - Works out the current phase and routes to the next skill (`references/routing.md`).
 - In production mode, applies phase gates: no stack choice without a spec, no mainnet without a readiness report.
 - Finds stack adapters automatically: any installed `stack-*` skill.
@@ -17,7 +19,10 @@ blockchain-dev/
 ├── SKILL.md
 ├── references/
 │   ├── routing.md            phase and topic → skill tables, the hierarchy, common skill chains
-│   └── chain-md.md           CHAIN.md + docs/ layout, ID scheme, update rules
+│   ├── chain-md.md           CHAIN.md + docs/ layout, ID scheme, update rules
+│   └── existing-projects.md  working inside existing codebases
+├── scripts/
+│   └── detect_stack.py       detect a repo's stack(s) and the matching skills
 └── assets/
     ├── CHAIN.template.md     starting CHAIN.md
     └── ADR.template.md       decision record template used by every skill

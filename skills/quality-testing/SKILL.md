@@ -37,7 +37,7 @@ Unit tests, fuzz tests (`go test -fuzz`, cargo-fuzz, Foundry fuzz), and stateful
 ### 4. Network level
 Use `references/multi-node-chaos.md`:
 - **Multi-node e2e**: the CometBFT e2e runner (TOML manifest; perturbations: pause, kill, restart, disconnect, upgrade), interchaintest for IBC, and Kurtosis ethereum-package for Ethereum-style devnets and shadowforks.
-- **Chaos scenarios**: partitions, more than 1/3 of voting power offline (expect a halt, then recovery), latency matrices, clock skew, validator churn, half of the community nodes leaving, randomness beacon stalls, upgrades under load, state-sync joins.
+- **Chaos scenarios**: partitions, more than 1/3 of voting power offline (expect a halt, then recovery), latency matrices, clock skew, validator churn, half of the non-consensus participants leaving, randomness beacon stalls, upgrades under load, state-sync joins.
 - **Deterministic simulation testing** (e.g. Antithesis) for consensus and timing bugs that ordinary chaos runs miss.
 
 ### 5. Performance

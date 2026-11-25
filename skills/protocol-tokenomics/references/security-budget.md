@@ -28,6 +28,6 @@ If the target bonded ratio requires a real yield above what issuance plus fees c
 Plot `fees_to_stakers / (issuance × staker_share)` over time. A sustainable chain trends toward fees carrying a growing part of the security budget. If issuance must stay high forever, say so publicly and justify it.
 
 ## Service-layer budget
-For the community/service share, compute reward per unit of verified work and per node at expected and 10× participation. Make sure honest operators can cover their costs (hardware, bandwidth, power) at the pessimistic price. Otherwise only subsidised or fake nodes remain.
+For any service-operator share (verifiers, storage, relayers, oracles), compute reward per unit of verified work and per node at expected and 10× participation. Make sure honest operators can cover their costs (hardware, bandwidth, power) at the pessimistic price. Otherwise only subsidised or fake nodes remain.
 
 Use `scripts/emission_sim.py` for the numbers.

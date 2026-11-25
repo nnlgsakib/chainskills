@@ -25,7 +25,7 @@ Tools: Linux `tc netem` (latency, loss, partition), toxiproxy (TCP faults), Chao
 | C4 | Latency matrix of the real target regions + 1–5% loss | block time within R-N p95 |
 | C5 | Clock skew ±N s on a subset | consensus time unaffected beyond bounds |
 | C6 | Validator churn at an epoch boundary (rotation) | set updates apply; no stall |
-| C7 | 50% of community/service nodes disappear | chain unaffected; rewards drop; no slashing for absence |
+| C7 | 50% of non-consensus participants (operators, verifiers, relayers, oracles) disappear | chain unaffected; rewards drop; no slashing for absence |
 | C8 | Randomness beacon stalls | the specified fallback (wait/skip/degrade) happens |
 | C9 | Upgrade at height H under load | all nodes switch; no app-hash mismatch |
 | C10 | New node joins via state sync/snapshot | syncs within R-N; serves queries |

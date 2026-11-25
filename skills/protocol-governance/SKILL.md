@@ -29,7 +29,7 @@ List every privileged action across the specs: parameter changes (within which b
 - **Delay** before execution must exceed the time users need to exit (unbonding for stakers, withdrawal windows for bridges and rollups).
 
 ### 3. Voting power
-Use `references/mechanisms.md`. Options: stake-weighted (validators vote by default for delegators, who can override), token-weighted with checkpoints (power snapshotted at proposal start), multi-house (e.g. a stakers' house plus a community-node or service house that can veto), councils, or custom tally functions. Cosmos SDK v0.54+ lets `x/gov` use a custom `CalculateVoteResultsAndVotingPowerFn`, so power can come from sources other than staking. Avoid quadratic or one-person-one-vote unless sybil resistance is real (`protocol-verifiable-participation` → sybil.md).
+Use `references/mechanisms.md`. Options: stake-weighted (validators vote by default for delegators, who can override), token-weighted with checkpoints (power snapshotted at proposal start), multi-house (e.g. a stakers' house plus a service-operator or user house that can veto), councils, or custom tally functions. Cosmos SDK v0.54+ lets `x/gov` use a custom `CalculateVoteResultsAndVotingPowerFn`, so power can come from sources other than staking. Avoid quadratic or one-person-one-vote unless sybil resistance is real (`protocol-verifiable-participation` → sybil.md).
 
 ### 4. Lifecycle parameters
 Deposit, voting delay (with the snapshot taken at proposal creation or earlier), voting period, quorum, threshold, veto threshold, expedited settings, late-quorum extension, timelock delay, and execution window. Make them all `P-GOV-*` with bounds, and decide whether governance can change its own parameters (and under what extra conditions).

@@ -41,7 +41,7 @@ Write these into the spec:
 - **Safety**: e.g. "no two conflicting blocks are finalised while < 1/3 of voting power is Byzantine".
 - **Liveness**: e.g. "new blocks are finalised while > 2/3 of voting power is online and honest and the network is synchronous".
 - **Halt behaviour**: what happens when liveness is lost (BFT halts, it does not fork), and the recovery procedure (coordinated restart, governance or social layer). This is a requirement for `ops-infrastructure` runbooks.
-- **Extra layers** (verifier committees, community nodes, DA samplers) are off the finality path unless the design explicitly says otherwise. If they go offline, rewards drop but the chain doesn't halt.
+- **Extra layers** (verifier committees, service operators, oracles, DA samplers) are off the finality path unless the design explicitly says otherwise. If they go offline, rewards drop but the chain doesn't halt.
 
 ### 5. Ordering, MEV, censorship
 Decide using `references/ordering-mev.md`: mempool visibility, builder/proposer separation, priority ordering, inclusion guarantees (forced inclusion, inclusion lists), and whether MEV revenue is captured or redistributed. Ordering rules that affect state must be deterministic and checkable by every validator.

@@ -24,8 +24,8 @@ Config (JSON; the # comments below are explanations only, generate a valid file 
   "bonded_ratio": [0.5, 0.55, 0.6],          # per year; last value repeats
   "fees_per_year": [1000000, 2000000],        # tokens; last value repeats
   "fee_burn_fraction": 0.5,                   # rest of fees joins the reward pool
-  "split": {"validators": 0.50, "delegators": 0.25, "community_services": 0.15, "reserve": 0.10},
-  "staker_roles": ["validators", "delegators"]   # roles whose rewards count toward staking yield
+  "split": {"stakers": 0.70, "treasury": 0.20, "ecosystem": 0.10},   # any role names
+  "staker_roles": ["stakers"]   # roles whose rewards count toward staking yield
 }
 """
 import csv
@@ -40,8 +40,8 @@ EXAMPLE = {
     "bonded_ratio": [0.5, 0.55, 0.6, 0.65],
     "fees_per_year": [1_000_000, 3_000_000, 6_000_000],
     "fee_burn_fraction": 0.5,
-    "split": {"validators": 0.50, "delegators": 0.25, "community_services": 0.15, "reserve": 0.10},
-    "staker_roles": ["validators", "delegators"],
+    "split": {"stakers": 0.70, "treasury": 0.20, "ecosystem": 0.10},
+    "staker_roles": ["stakers"],
 }
 
 
@@ -146,7 +146,7 @@ def selftest():
     assert all(0.07 - 1e-12 <= r["issuance_rate"] <= 0.20 + 1e-12 for r in r2)
     assert r2[1]["issuance_rate"] > r2[0]["issuance_rate"]               # under-bonded -> rate rises
     try:
-        simulate(dict(EXAMPLE, split={"validators": 0.6, "delegators": 0.6}))
+        simulate(dict(EXAMPLE, split={"stakers": 0.6, "treasury": 0.6}))
         raise AssertionError("bad split accepted")
     except ValueError:
         pass

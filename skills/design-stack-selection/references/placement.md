@@ -12,7 +12,7 @@
 | Off-chain service | Process run by operators (sequencer, prover, relayer, oracle, keeper, verifier) | Heavy compute, network/data work, anything not provable cheaply on-chain. Pair it with on-chain verification or challenges | It holds authority that isn't checked on-chain |
 | Client logic | Node or wallet behaviour (sync, light-client checks, DA sampling, mempool policy) | Per-node behaviour that doesn't change consensus state | It changes consensus outcomes (then it belongs in the state machine) |
 
-A single component often spans surfaces. For example, "community verification" might be an off-chain verifier service, plus a native module or contract that assigns tasks, takes commitments and pays rewards, plus a challenge contract. Put each part in its own placement row.
+A single component often spans surfaces. For example, a permissionless verification or oracle layer might be an off-chain service, plus a native module or contract that assigns tasks, takes commitments and pays rewards, plus a challenge contract. Put each part in its own placement row.
 
 ## What each stack supports natively
 
@@ -36,6 +36,6 @@ A single component often spans surfaces. For example, "community verification" m
 | Rewards / distribution | native module | system contract | L2 contract funded by fees |
 | Governance | native module | contracts (Governor + timelock) | L1 + L2 contracts (security council) |
 | Randomness beacon | native module (vote extensions / VRF) | contract + off-chain VRF/beacon | contract + oracle |
-| Verification layer (community nodes) | module (assign, commit, reward) + off-chain verifier | contracts + off-chain verifier | contracts + off-chain verifier |
+| Permissionless service / verifier layer | module (assign, commit, reward) + off-chain verifier | contracts + off-chain verifier | contracts + off-chain verifier |
 | Data availability sampling | client logic + off-chain service | client logic | DA layer (external) + client logic |
 | Bridge | IBC module / light-client module | contracts + relayers | native rollup bridge (L1 + L2 contracts) |

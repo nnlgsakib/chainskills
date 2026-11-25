@@ -2,7 +2,7 @@
 
 **Agent skills that take any blockchain idea, on any stack, to production.**
 
-They work with Cosmos SDK, EVM L1s, OP Stack, Arbitrum Orbit and ZK rollups, Substrate, and fully custom chains. Chain logic can live in native modules, precompiles, validator-set and system contracts, custom contracts, or off-chain services. You bring the idea; `blockchain-dev` runs design, then spec, stack choice, build, and quality, sending each step to the skill that owns it.
+They work with Cosmos SDK, EVM L1s, OP Stack, Arbitrum Orbit and ZK rollups, Substrate, and fully custom chains. Chain logic can live in native modules, precompiles, validator-set and system contracts, custom contracts, or off-chain services. Use it on a **new idea** or an **existing codebase**. `blockchain-dev` detects your stack, adapts to your project's conventions, and routes each task to the skill that owns it. When no skill fits, **`build-skill` creates one**: a new suite skill, or a project-local skill that captures your team's way of working. That way the suite grows with your needs.
 
 The skills use the open [Agent Skills](https://agentskills.io) format (`SKILL.md`). They ship as a **Claude Code plugin** and also work in **Codex, GitHub Copilot, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro** and other agents that read `SKILL.md`.
 
@@ -66,7 +66,18 @@ Paths are taken from the `skills` CLI agent table and vendor docs (checked 2026-
 
 ## Use
 
-Describe your chain or ask a blockchain question. Agents pick up `blockchain-dev` from its description, or you can call it directly (`/chainskills:blockchain-dev` in Claude Code). For a new project it creates `CHAIN.md` and `docs/` in your repo and walks the phases.
+Describe your chain or ask a blockchain question. Agents pick up the right skill from its description, or you can call the router directly (`/chainskills:blockchain-dev` in Claude Code).
+
+- **New project**: it creates `CHAIN.md` and `docs/` and walks design → spec → stack → build → quality.
+- **Existing project**: it runs `detect_stack.py` (Cosmos SDK, Ignite, Cosmos EVM, CosmWasm, OP Stack, Arbitrum, Avalanche, geth/reth, Substrate, Solana, Move, Foundry/Hardhat, CometBFT/Malachite apps, ...), follows your repo's conventions, and only bootstraps `CHAIN.md` if you want it.
+- **Single question**: it answers with the relevant skill and creates no project files.
+
+## Extend it
+
+- **Missing stack** (e.g. Substrate, OP Stack): `build-stack-adapter` researches the framework and creates a `stack-*` adapter.
+- **Missing topic or workflow**: `build-skill` creates a new skill from primary sources and validates it with `check_skill.py`.
+- **Your team's conventions**: `build-skill` creates a project-local skill (e.g. `acme-module-template`) in `.agents/skills/` or `.claude/skills/`, committed with your repo.
+- **Stale facts**: `check_skill.py` warns when a skill's sources are older than 180 days, and `build-skill` has a refresh mode.
 
 ## Hierarchy
 
@@ -102,6 +113,7 @@ blockchain-dev                         L0  entry point: reads CHAIN.md and route
 | L2 | `protocol-data-availability`, `protocol-p2p`, `protocol-interop` | planned |
 | L3 | [`build-smart-contracts`](skills/build-smart-contracts/): Solidity/Foundry/OZ 5.7, upgrades, testing, audit prep | ✅ |
 | L3 | [`build-stack-adapter`](skills/build-stack-adapter/): adapter contract, template, checker | ✅ |
+| L3 | [`build-skill`](skills/build-skill/): create or refresh any skill (suite or project-local), `check_skill.py` | ✅ |
 | L3 | `build-node-software` | planned |
 | L4 | [`stack-cosmos-ignite`](skills/stack-cosmos-ignite/): Cosmos SDK with Ignite CLI (v29 stable / v30) | ✅ |
 | L4 | [`stack-cosmos-evm`](skills/stack-cosmos-evm/): Cosmos EVM via the Ignite EVM app | ✅ |
@@ -129,6 +141,8 @@ docs/decisions/          decision records (ADRs)
 
 | Script | Purpose |
 |---|---|
+| `blockchain-dev/scripts/detect_stack.py` | detect a repo's blockchain stack(s) and the matching skills |
+| `build-skill/scripts/check_skill.py` | validate any skill (Agent Skills format, suite conventions, stale sources) |
 | `stack-cosmos-ignite/scripts/audit_state_machine.py` | flag non-determinism in Cosmos module code |
 | `stack-cosmos-evm/scripts/check_evm_genesis.py` | sanity-check a Cosmos EVM genesis |
 | `build-stack-adapter/scripts/check_adapter.py` | validate a stack adapter against the contract |

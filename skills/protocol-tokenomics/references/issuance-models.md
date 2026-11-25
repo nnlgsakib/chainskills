@@ -17,7 +17,7 @@ Reference points checked 2026-11-25 are marked ✔. Use them as anchors and cite
 - Any model: put the formula, bounds and change process in the spec. Governance changes need a timelock.
 
 ## Reward split pitfalls
-- A fixed percentage to a role whose size grows (e.g. community nodes) dilutes rewards per node. Show reward per node at 10× and 100× participation.
+- A fixed percentage to a role whose size grows (e.g. service operators, oracle reporters, storage providers) dilutes rewards per node. Show reward per node at 10× and 100× participation.
 - Validator and delegator splits double-count if commission also applies. Specify one formula.
 - Unclaimed or unearned budgets: decide burn vs reserve vs roll-over explicitly.
 
