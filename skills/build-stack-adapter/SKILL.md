@@ -1,6 +1,6 @@
 ---
 name: build-stack-adapter
-description: Create, refresh or validate a chainskills stack adapter — a `stack-<family>-<name>` skill that teaches an AI coding agent how to implement the suite's stack-neutral designs on one specific framework (OP Stack, Arbitrum Orbit, ZK Stack, Polygon CDK, Substrate, Avalanche L1, geth/reth/Besu fork, Hyperledger, CometBFT custom app, Malachite, Sovereign SDK, Solana SVM, Move chains, or anything else). Use whenever a chosen stack has no `stack-*` skill yet, the user asks to "add support for <framework>", an adapter is outdated after a framework release, or an adapter needs checking against the adapter contract.
+description: Create (full or on-the-fly project-local quick mode), refresh or validate a chainskills stack adapter — a `stack-<family>-<name>` skill that teaches an AI coding agent how to implement the suite's stack-neutral designs on one specific framework (OP Stack, Arbitrum Orbit, ZK Stack, Polygon CDK, Substrate, Avalanche L1, geth/reth/Besu fork, Hyperledger, CometBFT custom app, Malachite, Sovereign SDK, Solana SVM, Move chains, or anything else). Use whenever a chosen stack has no `stack-*` skill yet, the user asks to "add support for <framework>", an adapter is outdated after a framework release, or an adapter needs checking against the adapter contract.
 license: MIT
 ---
 
@@ -18,7 +18,19 @@ Every adapter follows the same contract so the router and the other skills can r
 - README.md and LICENSE (distributable skill layout).
 - Facts come from sources you actually read, such as official docs, the repo README, examples, changelogs, and the code. Anything not verified is marked `(unverified)`.
 
-## Workflow
+## Quick mode: an adapter on the fly, inside the user's project
+
+Use this when a developer is working **now** on a stack with no adapter: `detect_stack.py` reports `MISSING`, or `design-stack-selection` picks an uncovered stack. The goal is framework-specific help in this session, not a polished suite release.
+
+1. Research only what the current task needs, from primary sources: install, project layout, how the task's component is built on this stack, test tooling, and the top pitfalls. Record the sources and the date.
+2. Create the adapter **project-locally** with the same contract (template, all 14 placement-map rows, with `(unverified)` where you didn't check). Put it in the project's skills folder (`.agents/skills/stack-<family>-<name>/`, plus `.claude/skills/` for Claude Code users; see `../build-skill/references/project-local.md`).
+3. Validate with `check_adapter.py`. Errors must be fixed. Warnings are fine in quick mode.
+4. Use it right away for the task.
+5. Offer to upstream it: run the full workflow below to turn it into a suite adapter (complete research, README, registration) and contribute it to chainskills.
+
+Quick mode keeps "any stack" honest. Every developer gets researched, framework-specific guidance on first contact, and the suite grows from real use.
+
+## Workflow (full suite adapter)
 
 ### 1. Identify the target
 Pin down the stack name, family, exact version or tag to target, and which project needs it (`CHAIN.md` → Stack, if present). If an adapter already exists, this is a **refresh**. Read it first and keep its structure.

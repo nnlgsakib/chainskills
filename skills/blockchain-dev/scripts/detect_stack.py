@@ -21,22 +21,23 @@ RULES = [
     ("cosmos-evm", "go.mod", r"github\.com/cosmos/evm\s+v([\d.]+)", "stack-cosmos-evm"),
     ("ignite", "go.mod", r"github\.com/ignite/cli/v(\d+)", "stack-cosmos-ignite"),
     ("cosmwasm-chain", "go.mod", r"github\.com/CosmWasm/wasmd\s+v([\d.]+)", "stack-cosmos-apps"),
-    ("cometbft-app", "go.mod", r"github\.com/cometbft/cometbft\s+v([\d.]+)", "stack-cosmos-ignite"),
+    ("cometbft-app", "go.mod", r"github\.com/cometbft/cometbft\s+v([\d.]+)", "stack-custom-bft"),
     ("op-stack", "go.mod", r"github\.com/ethereum-optimism/(optimism|op-geth)", "stack-rollup-op"),
     ("arbitrum-nitro", "go.mod", r"github\.com/offchainlabs/nitro", "stack-rollup-orbit"),
     ("avalanche", "go.mod", r"github\.com/ava-labs/(avalanchego|subnet-evm|coreth)", "stack-avalanche-l1"),
     ("geth-fork", "go.mod", r"github\.com/ethereum/go-ethereum\s+v([\d.]+)", "stack-evm-l1"),
     ("bsc-posa", "go.mod", r"github\.com/bnb-chain/", "stack-evm-l1"),
     ("hyperledger-fabric", "go.mod", r"github\.com/hyperledger/fabric", "stack-permissioned-fabric"),
-    ("substrate", "Cargo.toml", r"\b(frame-support|sp-runtime|polkadot-sdk)\b", "stack-substrate-solo"),
+    ("substrate", "Cargo.toml", r"\b(frame-support|sp-runtime|polkadot-sdk)\b", "stack-substrate-sdk"),
     ("reth", "Cargo.toml", r"\breth[-_a-z]*\s*=", "stack-evm-l1"),
-    ("malachite", "Cargo.toml", r"malachitebft|informalsystems-malachite", "stack-custom-malachite"),
-    ("rust-abci", "Cargo.toml", r"\b(tendermint-abci|cometbft-abci|tower-abci)\b", "stack-custom-rust-abci"),
+    ("malachite", "Cargo.toml", r"malachitebft|informalsystems-malachite", "stack-custom-bft"),
+    ("rust-abci", "Cargo.toml", r"\b(tendermint-abci|cometbft-abci|tower-abci)\b", "stack-custom-bft"),
+    ("commonware", "Cargo.toml", r"\bcommonware-[a-z]+", "stack-custom-bft"),
     ("solana", "Cargo.toml", r"\b(solana-program|anchor-lang|solana-sdk)\b", "stack-svm-solana"),
     ("sovereign-sdk", "Cargo.toml", r"\bsov-(modules|rollup)", "stack-rollup-sovereign"),
     ("cosmwasm-contracts", "Cargo.toml", r"\bcosmwasm-std\b", "stack-cosmos-apps"),
     ("arbitrum-stylus", "Cargo.toml", r"\bstylus-sdk\b", "stack-rollup-orbit"),
-    ("move", "Move.toml", r"\[package\]", "stack-move"),
+    ("move", "Move.toml", r"\[package\]", "stack-move-sui-aptos"),
     ("foundry", "foundry.toml", r"\[profile", "build-smart-contracts"),
     ("hardhat", "hardhat.config.ts", r".", "build-smart-contracts"),
     ("hardhat", "hardhat.config.js", r".", "build-smart-contracts"),
@@ -144,7 +145,7 @@ def main():
     if not r["stacks"]:
         print("no known blockchain stack detected (new project, or a stack not in the rule list)")
     for s in r["stacks"]:
-        status = {True: "installed", False: "MISSING -> create it with build-stack-adapter", None: "unknown"}[s["skill_installed"]]
+        status = {True: "installed", False: "MISSING -> build-stack-adapter quick mode creates a project-local adapter now", None: "unknown"}[s["skill_installed"]]
         v = f" v{s['version']}" if s["version"] else ""
         print(f"- {s['stack']}{v}: skill {s['skill']} ({status}); evidence: {', '.join(s['evidence'])}")
 

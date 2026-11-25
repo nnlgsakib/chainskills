@@ -2,7 +2,7 @@
 
 **Agent skills that take any blockchain idea, on any stack, to production.**
 
-They work with Cosmos SDK, EVM L1s, OP Stack, Arbitrum chains and ZK Stack rollups out of the box. Substrate, Solana and fully custom chains get an adapter on demand via `build-stack-adapter`. Chain logic can live in native modules, precompiles, validator-set and system contracts, custom contracts, or off-chain services. Use it on a **new idea** or an **existing codebase**. `blockchain-dev` detects your stack, adapts to your project's conventions, and routes each task to the skill that owns it. When no skill fits, **`build-skill` creates one**: a new suite skill, or a project-local skill that captures your team's way of working. That way the suite grows with your needs.
+Framework-specific adapters ship for **Cosmos SDK (Ignite, Cosmos EVM, Ignite Apps), EVM L1s (Besu/geth/reth/BSC-style), OP Stack, Arbitrum chains, ZK Stack, Polkadot SDK, Avalanche L1, Solana/SVM, Move (Sui/Aptos), custom CometBFT/Malachite chains and Hyperledger Fabric**. Any other stack gets a researched adapter on the fly (`build-stack-adapter` quick mode). Chain logic can live in native modules, precompiles, validator-set and system contracts, custom contracts, or off-chain services. Use it on a **new idea** or an **existing codebase**. `blockchain-dev` detects your stack, adapts to your project's conventions, and routes each task to the skill that owns it. When no skill fits, **`build-skill` creates one**: a new suite skill, or a project-local skill that captures your team's way of working. That way the suite grows with your needs.
 
 The skills use the open [Agent Skills](https://agentskills.io) format (`SKILL.md`). They ship as a **Claude Code plugin** and also work in **Codex, GitHub Copilot, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro** and other agents that read `SKILL.md`.
 
@@ -122,7 +122,13 @@ blockchain-dev                         L0  entry point: reads CHAIN.md and route
 | L4 | [`stack-rollup-op`](skills/stack-rollup-op/): OP Stack (op-deployer, op-node + op-reth, fault proofs, op-conductor) | ✅ |
 | L4 | [`stack-rollup-orbit`](skills/stack-rollup-orbit/): Arbitrum chains / Orbit (chain SDK, BoLD, AnyTrust, Stylus, AEP) | ✅ |
 | L4 | [`stack-rollup-zk`](skills/stack-rollup-zk/): ZK Stack (ZKsync OS, zkstack, Airbender, Gateway, Prividium) | ✅ |
-| L4 | any other stack (Substrate, Avalanche L1, Solana/SVM, Move, custom Rust/Go, ...) via `build-stack-adapter` | on demand |
+| L4 | [`stack-substrate-sdk`](skills/stack-substrate-sdk/): Polkadot SDK parachains and solo chains, FRAME, coretime, runtime upgrades | ✅ |
+| L4 | [`stack-avalanche-l1`](skills/stack-avalanche-l1/): Avalanche L1s (ACP-77/99 validator managers, Subnet-EVM, ICM) | ✅ |
+| L4 | [`stack-svm-solana`](skills/stack-svm-solana/): Solana programs (Anchor, Agave, LiteSVM/Mollusk/Surfpool), SVM pointers | ✅ |
+| L4 | [`stack-move-sui-aptos`](skills/stack-move-sui-aptos/): Move on Sui and Aptos (publish/upgrade policies, Move Prover) | ✅ |
+| L4 | [`stack-custom-bft`](skills/stack-custom-bft/): custom chains on CometBFT ABCI 2.0, Malachite, Commonware | ✅ |
+| L4 | [`stack-permissioned-fabric`](skills/stack-permissioned-fabric/): Hyperledger Fabric v3 (SmartBFT, chaincode lifecycle) | ✅ |
+| L4 | **any other stack**: `build-stack-adapter` quick mode creates a researched, project-local adapter on first contact | on demand |
 | L5 | [`quality-security`](skills/quality-security/): threat model, keys, SDLC, audits, bounties, incident response | ✅ |
 | L5 | [`quality-testing`](skills/quality-testing/): traceability, multi-node, chaos, determinism, performance | ✅ |
 | L5 | [`quality-formal-verification`](skills/quality-formal-verification/): Quint/TLA+, Certora/Halmos/Kani, tested Quint starter | ✅ |

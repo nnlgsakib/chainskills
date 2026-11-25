@@ -1,8 +1,8 @@
 {
   "name": "chainskills",
   "displayName": "chainskills: blockchain development suite",
-  "version": "0.3.0",
-  "description": "Stack-agnostic skills for any blockchain project, new or existing, that can extend themselves: design, specs, consensus, staking, rollups, randomness, verifiable participation, tokenomics, governance, smart contracts, stack adapters (Cosmos SDK / Ignite / Cosmos EVM, EVM L1, OP Stack, Arbitrum chains, ZK Stack), security, testing and formal verification.",
+  "version": "0.4.0",
+  "description": "Stack-agnostic skills for any blockchain project, new or existing, that can extend themselves: design, specs, consensus, staking, rollups, randomness, verifiable participation, tokenomics, governance, smart contracts, stack adapters (Cosmos SDK, EVM L1, OP Stack, Arbitrum chains, ZK Stack, Polkadot SDK, Avalanche L1, Solana/SVM, Move, custom CometBFT/Malachite, Hyperledger Fabric, plus on-the-fly adapters for any other stack), security, testing and formal verification.",
   "author": { "name": "nnlgsakib", "url": "https://github.com/nnlgsakib" },
   "homepage": "https://github.com/nnlgsakib/chainskills",
   "repository": "https://github.com/nnlgsakib/chainskills",

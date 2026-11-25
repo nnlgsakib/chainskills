@@ -29,7 +29,7 @@ Also read the project's own README, `docs/`, ADRs, CONTRIBUTING, Makefile/CI and
 - **Location**: if the project already has a docs convention (e.g. `docs/design/`, `spec/`, a wiki), point CHAIN.md at it instead of creating a parallel `docs/spec/`.
 
 ## 4. When the stack has no adapter
-Detected but not covered (e.g. Substrate, OP Stack, a custom Rust chain): run `build-stack-adapter` to create the adapter from primary sources first, then continue. Until it exists, mark framework-specific advice as `unverified`.
+Detected but not covered (for example a Sovereign SDK rollup, or any framework missing from the suite): run `build-stack-adapter` in **quick mode**. It researches the framework from primary sources and creates a project-local adapter in the repo's skills folder, then continues with the task using it. Offer to upstream the adapter afterwards.
 
 ## 5. When no skill covers the need
 For a topic, mechanism or workflow that no installed skill covers, use `build-skill`. It can create a new suite skill or a **project-local** skill that captures this project's own conventions, then continue with it.

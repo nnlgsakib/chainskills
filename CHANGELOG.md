@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.4.0 — 2026-11-25
+
+Framework-specific help for every major stack, not just Cosmos. Six new adapters, each researched from primary sources (releases and official docs, 2026-11-25) and passing `check_adapter.py` + `check_skill.py`:
+- **`stack-substrate-sdk`**: Polkadot SDK (polkadot-stable2609-2): parachains with coretime, solo chains, FRAME, omni-node, Pop CLI, runtime upgrades, pallet-revive.
+- **`stack-avalanche-l1`**: avalanchego v1.15.3, ACP-77/99 validator managers v2, Subnet-EVM (now in avalanchego), ICM, Builder Console and platform-cli (avalanche-cli in maintenance mode).
+- **`stack-svm-solana`**: Agave v4.4.1, Anchor v1.2.2, LiteSVM, Mollusk and Surfpool (bankrun deprecated).
+- **`stack-move-sui-aptos`**: Sui mainnet-v1.84.2 and Aptos v1.50.1 / CLI 9.5.1; upgrade policies; Move Prover.
+- **`stack-custom-bft`**: CometBFT ABCI 2.0 (v0.40/v0.38), tendermint-rs, Malachite, Commonware.
+- **`stack-permissioned-fabric`**: Hyperledger Fabric v3.1.5, SmartBFT, chaincode lifecycle, Fabric Gateway.
+- **`build-stack-adapter` quick mode**: on first contact with an uncovered stack, it creates a researched, project-local adapter and continues the task. The router and `detect_stack.py` now point there.
+- `detect_stack.py` maps every detected stack to a shipped adapter (except Sovereign SDK, which uses quick mode), and adds a Commonware rule.
+
 ## 0.3.0 — 2026-11-25
 
 New stack adapters, each researched from primary sources (releases and official docs, 2026-11-25) and passing `check_adapter.py` + `check_skill.py`:

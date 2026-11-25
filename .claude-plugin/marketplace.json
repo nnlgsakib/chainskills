@@ -6,7 +6,7 @@
     {
       "name": "chainskills",
       "source": "./",
-      "description": "25 skills, self-extending: design → protocol mechanisms → smart contracts → stack adapters → security, testing, formal verification.",
+      "description": "31 skills, 13 stack adapters, self-extending: design → protocol mechanisms → smart contracts → stack adapters → security, testing, formal verification.",
       "category": "development",
       "tags": ["blockchain", "cosmos", "evm", "rollup", "web3"]
     }

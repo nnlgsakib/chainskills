@@ -45,7 +45,7 @@ A request can touch several skills. Load them in layer order — design → prot
 1. Installed → invoke it by name, using whatever mechanism your agent provides. In Claude Code as a plugin it's `/chainskills:<skill-name>`; installed standalone it's `/<skill-name>`. Agents that load skills automatically pick them up from their descriptions.
 2. Not invocable but present on disk → read `<this-skill-dir>/../<skill-name>/SKILL.md` and follow it. All chainskills skills are siblings under the same `skills/` folder.
 3. Missing (planned but not built yet, or a need no skill covers) → say so in one line, then:
-   - **Recurring or important need** (a framework without an adapter, a mechanism, an ops workflow, project-specific conventions): offer `build-skill`, which researches and creates the skill, as a suite skill or a project-local one, so the next request is covered. For a missing stack adapter, `build-skill` hands over to `build-stack-adapter`.
+   - **Recurring or important need** (a framework without an adapter, a mechanism, an ops workflow, project-specific conventions): offer `build-skill`, which researches and creates the skill, as a suite skill or a project-local one, so the next request is covered. For a **missing stack adapter**, go straight to `build-stack-adapter` **quick mode**: it creates a researched, project-local adapter now and continues the task, so no stack gets only generic advice.
    - **One-off need**: do the work with general knowledge **using the same output contract** (results into the project's spec location, decisions as ADRs from `assets/ADR.template.md`, status into `CHAIN.md` if it exists). Mark the output "unverified — no skill".
 
 ## 5. Phase gates (production mode)
