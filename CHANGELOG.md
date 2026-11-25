@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.2 — 2026-11-25
+
+- Portability: every skill and README that runs a bundled script now says to retry `python3` as `python`, then `py -3`. On many Windows machines `python3` is missing or opens the Store stub.
+- `check_skill.py` warns when a skill invokes `python3` without that fallback note. Conventions updated.
+
 ## 0.4.1 — 2026-11-25
 
 - Fix: the `stack-substrate-sdk` description contained `: `, which is invalid plain YAML. Strict parsers (the `skills` CLI) skipped the skill. Reworded.

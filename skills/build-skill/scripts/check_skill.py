@@ -113,6 +113,10 @@ def check(path, local=False, max_age_days=180, today=None):
             if age > max_age_days:
                 warns.append(f"sources verified {d} ({age} days ago): refresh facts (build-skill refresh mode)")
 
+    if "python3 " in body and "retry the same command with `python`" not in body:
+        warns.append("invokes python3 without the fallback note (python3 → python → py -3); "
+                     "add the standard '**Python command:**' line before the first command")
+
     sd = os.path.join(path, "scripts")
     if os.path.isdir(sd):
         for f in sorted(os.listdir(sd)):

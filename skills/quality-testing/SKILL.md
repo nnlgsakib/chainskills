@@ -22,6 +22,8 @@ Inputs: `docs/spec/*` (INV/P/R IDs), R-N targets in `CHAIN.md`, the stack adapte
 ### 1. Plan from the spec
 Build `docs/testing/plan.md` from `references/test-matrix.md`: every `INV-*` gets at least one test, every check `C-n` gets a rejection test, every acceptance criterion gets a test, and every R-N gets a benchmark scenario. Then run:
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <skill-dir>/scripts/trace_invariants.py . --strict   # fails if a critical invariant has no test or model
 ```

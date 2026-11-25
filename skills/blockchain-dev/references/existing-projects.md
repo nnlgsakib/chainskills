@@ -4,6 +4,8 @@ chainskills works the same for a greenfield idea and for a chain, rollup or prot
 
 ## 1. Detect the stack
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <blockchain-dev-dir>/scripts/detect_stack.py <repo-root>            # human-readable
 python3 <blockchain-dev-dir>/scripts/detect_stack.py <repo-root> --json     # for tooling

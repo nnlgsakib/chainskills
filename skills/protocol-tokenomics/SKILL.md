@@ -43,6 +43,8 @@ Designs often name percentages per role, e.g. *validators X%, delegators Y%, ser
 Use `references/security-budget.md`: cost to attack (price × bonded × attack fraction) versus value secured, and the staking yield needed to keep the bonded ratio at target against the opportunity cost of capital. Run it at pessimistic prices.
 
 ### 7. Simulate
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 - **Baseline**: `python3 scripts/emission_sim.py config.json` gives supply, issuance, burn, net inflation, nominal and real staking yield, and payouts per role per year.
 - **Scenarios** (`references/simulation.md`): price −80%, fee revenue 10× lower than planned, bonded ratio swings, a large unlock cliff, service nodes growing 10× (reward per node dilution).
 - **Agent-based** (cadCAD/radCAD/Mesa, or TokenSPICE with the EVM in the loop) when behaviour matters (unstaking under low yield, sell pressure).

@@ -51,6 +51,8 @@ A variant is **claims and proofs**: a node claims aggregate work (a Merkle root)
 - Committee size from `scripts/committee_risk.py`.
 
 ### 5. Price cheating out
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 For each cheat, use deterrence: `penalty × P(detect) > gain from cheating`. Run `python3 scripts/committee_risk.py deterrence --gain G --audit-rate p --tasks n` to get the minimum penalty. Bonds must cover the maximum penalty.
 
 ### 6. Separate absence from fraud

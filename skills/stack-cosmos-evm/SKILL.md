@@ -82,6 +82,8 @@ The generated code is a starting point. Check and fix:
 
 Then run the genesis checker:
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 ignite evm init                                    # inits home + genesis (dev)
 python3 <skill-dir>/scripts/check_evm_genesis.py ~/.mychain/config/genesis.json

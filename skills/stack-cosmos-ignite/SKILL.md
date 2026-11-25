@@ -83,6 +83,8 @@ Scaffolded handlers are stubs or naive CRUD. Fill them following `references/mod
 
 Then run the state-machine audit:
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <skill-dir>/scripts/audit_state_machine.py .
 ```

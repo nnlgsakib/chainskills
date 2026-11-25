@@ -149,6 +149,8 @@ docs/decisions/          decision records (ADRs)
 
 ## Scripts (Python 3, stdlib only, each with a self-test)
 
+Run them with `python3`. If that command isn't found (common on Windows), use `python`, then `py -3`. Every skill tells agents to retry the same way.
+
 | Script | Purpose |
 |---|---|
 | `blockchain-dev/scripts/detect_stack.py` | detect a repo's blockchain stack(s) and the matching skills |

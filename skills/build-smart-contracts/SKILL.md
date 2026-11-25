@@ -50,6 +50,8 @@ Use OpenZeppelin Contracts 5.x (5.7.0 is the latest as of 2026-11-25) instead of
 - Coverage: `forge coverage` or `npx hardhat test --coverage`. Read the uncovered lines, don't just chase a percentage.
 
 ### 5. Static analysis
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <skill-dir>/scripts/check_contracts.py src/     # quick suite-specific checks (EIP-7702, initializers, pragma, ...)
 forge lint                                              # Foundry built-in detectors

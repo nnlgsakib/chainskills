@@ -45,6 +45,8 @@ Copy `assets/skill-template/` to the new folder, rename the `.tmpl` files, and f
 - Stay agent-neutral: no single-harness tool names. Refer to other skills by name and to shared files by relative path (`../blockchain-dev/...`).
 
 ### 4. Validate
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <this-skill-dir>/scripts/check_skill.py <new-skill-dir>            # suite skill
 python3 <this-skill-dir>/scripts/check_skill.py <new-skill-dir> --local    # project-local skill

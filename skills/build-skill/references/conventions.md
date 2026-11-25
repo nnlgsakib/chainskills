@@ -42,6 +42,9 @@ Target under about 250 lines, with a hard limit of 500. Move catalogues, tables 
 ## Scripts
 - Python 3 stdlib only. Read-only on the user's project unless the skill's purpose is to write files.
 - A `--selftest` (or `selftest` subcommand) that exercises the real logic and must pass.
+- Write commands as `python3 …`, and put this standard line before the first command in every file. `check_skill.py` warns when it's missing.
+
+  > **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
 - Never execute project code from a detection or analysis script.
 
 ## IDs used across skills

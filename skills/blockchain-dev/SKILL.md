@@ -10,6 +10,8 @@ Stack-agnostic entry point of the chainskills suite. It does not design or code 
 
 ## 1. Find the project state
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 Look for `CHAIN.md` at the project root (also check `docs/`). If the repo has code, also run `python3 <this-skill-dir>/scripts/detect_stack.py <repo-root>` to see which stack(s) it uses and which skills cover them.
 
 - **Found** → read it. Phase, stack, components, decisions and open questions tell you where to continue. Read the linked spec file for the component being worked on, nothing more.

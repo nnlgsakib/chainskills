@@ -50,6 +50,8 @@ Capture:
 Copy `assets/adapter-template/` to a sibling folder `../stack-<family>-<name>/` and rename `SKILL.md.tmpl` to `SKILL.md`. The template is stored as `.tmpl` so agents don't load it as a skill. Replace every `<...>` placeholder. Keep SKILL.md under ~250 lines and put detail in `references/`. Write the description so it triggers on the framework's names, CLI names and common phrasings ("OP Stack", "op-node", "Superchain", "deploy an L2 with OP").
 
 ### 4. Verify
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <this-skill-dir>/scripts/check_adapter.py ../stack-<family>-<name>
 ```

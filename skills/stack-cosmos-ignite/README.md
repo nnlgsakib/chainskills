@@ -38,6 +38,8 @@ stack-cosmos-ignite/
 
 Run the scanner yourself:
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 scripts/audit_state_machine.py /path/to/mychain
 python3 scripts/audit_state_machine.py --selftest

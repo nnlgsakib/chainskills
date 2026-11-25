@@ -10,6 +10,8 @@
 ## Adding a skill
 Use the `build-skill` skill (template in `skills/build-skill/assets/skill-template/`), then validate:
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 skills/build-skill/scripts/check_skill.py skills/<new-skill>
 ```

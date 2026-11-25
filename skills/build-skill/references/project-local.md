@@ -28,6 +28,8 @@ For a mixed-agent team, `.agents/skills/` covers the most agents. Add `.claude/s
 - No secrets, keys, internal hostnames or credentials, because skills are plain files that get shared.
 
 ## Validate
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 <build-skill-dir>/scripts/check_skill.py .agents/skills/<name> --local
 ```

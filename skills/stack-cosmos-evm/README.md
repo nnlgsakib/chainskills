@@ -14,6 +14,8 @@ The skill flags rough edges found in the generated code (evm app v0.2.0) and tel
 
 It also includes a genesis checker:
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 scripts/check_evm_genesis.py ~/.mychain/config/genesis.json
 python3 scripts/check_evm_genesis.py --selftest

@@ -2,6 +2,8 @@
 
 Builds production EVM contracts from chainskills specs: Foundry v1.10 or Hardhat 3, Solidity 0.8.39, OpenZeppelin 5.7, safe upgrade patterns (UUPS, ERC-7201, initializers), EIP-7702-safe code, unit/fuzz/invariant/symbolic testing, static analysis, deterministic deployment, and audit prep against the OWASP Smart Contract Top 10 2026. Includes patterns for validator-set, staking and system contracts.
 
+> **Python command:** examples use `python3`. If that isn't found (common on Windows), retry the same command with `python`, then `py -3`.
+
 ```bash
 python3 scripts/check_contracts.py src/     # tx.origin, EOA checks, unprotected implementations, open upgrades, old compiler, ...
 python3 scripts/check_contracts.py --selftest
