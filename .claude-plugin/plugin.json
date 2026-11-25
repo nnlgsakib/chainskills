@@ -1,0 +1,11 @@
+{
+  "name": "chainskills",
+  "displayName": "chainskills: blockchain development suite",
+  "version": "0.1.0",
+  "description": "Stack-agnostic skills that take any blockchain idea to production: design, specs, consensus, staking, rollups, randomness, verifiable participation, tokenomics, governance, smart contracts, stack adapters (Cosmos SDK / Ignite / Cosmos EVM), security, testing and formal verification.",
+  "author": { "name": "nnlgsakib", "url": "https://github.com/nnlgsakib" },
+  "homepage": "https://github.com/nnlgsakib/chainskills",
+  "repository": "https://github.com/nnlgsakib/chainskills",
+  "license": "MIT",
+  "keywords": ["blockchain", "cosmos-sdk", "ignite", "evm", "rollup", "solidity", "consensus", "staking", "tokenomics", "governance", "security", "formal-verification", "agent-skills"]
+}

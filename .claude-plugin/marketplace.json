@@ -1,0 +1,14 @@
+{
+  "name": "chainskills",
+  "description": "chainskills: stack-agnostic blockchain development skills, from idea to production.",
+  "owner": { "name": "nnlgsakib", "url": "https://github.com/nnlgsakib" },
+  "plugins": [
+    {
+      "name": "chainskills",
+      "source": "./",
+      "description": "20 skills: design → protocol mechanisms → smart contracts → stack adapters → security, testing, formal verification.",
+      "category": "development",
+      "tags": ["blockchain", "cosmos", "evm", "rollup", "web3"]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+---
+name: stack-<family>-<name>
+description: Implement chainskills designs on <Stack name> (<key product/CLI names>) — setup, where each protocol component lives (<examples: modules, predeploys, system contracts>), building, testing, releasing and operating a <Stack name> chain. Use whenever the user works with <Stack name>, <CLI/binary names>, or chose <Stack name> in design-stack-selection.
+---
+
+# <Stack name> adapter
+
+Stack adapter in the chainskills suite. Designs and specs come from `design-*` and `protocol-*` skills (stack-neutral). This skill maps them onto <Stack name>. Shared project state is `CHAIN.md` (see `../blockchain-dev/references/chain-md.md`).
+
+## Adapter metadata
+- Family: <family>
+- Stack: <name + one-line description>
+- Versions verified: <component vX.Y.Z, ...>
+- Verified on: <YYYY-MM-DD>
+- Sources: <repo URLs at commit/tag, docs pages>
+- Unverified parts: <list or "none">
+
+## When to use this adapter
+<Architecture classes and requirements this stack fits, and when to pick a different adapter.>
+
+## Placement map
+Summary of `references/placement-map.md`:
+- Native: <concepts>
+- Extend: <concepts>
+- Custom: <concepts>
+- n/a: <concepts>
+
+## Setup
+<Toolchain, install, create a project, project layout, run a local network. Exact commands.>
+
+## Implement
+<Workflow per surface: how to add a module, contract, predeploy, service in this stack. Link references.>
+
+## Test
+<Unit, integration, multi-node, simulation and fuzz tooling for this stack.>
+
+## Production
+<Stack-specific production checklist items: keys, node roles, config, upgrade mechanism, monitoring. Links to `references/production.md`.>
+
+## Known pitfalls
+<Unsafe defaults, surprising behaviour, generated-code bugs, version traps.>
+
+## Updating this adapter
+Run `build-stack-adapter` in refresh mode. Re-verify against the latest release, update "Versions verified", and record breaking changes in README.
