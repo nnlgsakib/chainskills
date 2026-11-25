@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0 — 2026-11-25
+
+New stack adapters, each researched from primary sources (releases and official docs, 2026-11-25) and passing `check_adapter.py` + `check_skill.py`:
+- **`stack-evm-l1`**: own EVM L1 via Besu QBFT, an Ethereum-style PoS beacon chain, the reth SDK, a BSC-style PoSA fork, or an Avalanche L1 (geth v1.17.10, reth v2.11.0, Besu 26.11.2, Lighthouse v8.3.3).
+- **`stack-rollup-op`**: OP Stack with op-deployer v0.9.0, op-node v1.20.2 + op-reth v2.9.0 (op-geth end-of-support), fault proofs and ZK games, op-conductor HA, op-supernode.
+- **`stack-rollup-orbit`**: Arbitrum chains with Nitro v3.12.4, `@arbitrum/chain-sdk` v0.28.0, BoLD, AnyTrust, Stylus and AEP licensing.
+- **`stack-rollup-zk`**: ZK Stack with ZKsync OS server v0.23.0, the zkstack CLI, Airbender, Gateway and Prividium.
+- `detect_stack.py`: new rules for BSC-style forks, Besu QBFT genesis, `@arbitrum/chain-sdk`, ZKsync OS. reth now maps to `stack-evm-l1`.
+
 ## 0.2.0 — 2026-11-25
 
 - **Any project, any stack**: example content is now project-neutral. `blockchain-dev` supports existing codebases (`references/existing-projects.md`), adapts to the project's conventions, and only bootstraps `CHAIN.md` on request.

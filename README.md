@@ -2,7 +2,7 @@
 
 **Agent skills that take any blockchain idea, on any stack, to production.**
 
-They work with Cosmos SDK, EVM L1s, OP Stack, Arbitrum Orbit and ZK rollups, Substrate, and fully custom chains. Chain logic can live in native modules, precompiles, validator-set and system contracts, custom contracts, or off-chain services. Use it on a **new idea** or an **existing codebase**. `blockchain-dev` detects your stack, adapts to your project's conventions, and routes each task to the skill that owns it. When no skill fits, **`build-skill` creates one**: a new suite skill, or a project-local skill that captures your team's way of working. That way the suite grows with your needs.
+They work with Cosmos SDK, EVM L1s, OP Stack, Arbitrum chains and ZK Stack rollups out of the box. Substrate, Solana and fully custom chains get an adapter on demand via `build-stack-adapter`. Chain logic can live in native modules, precompiles, validator-set and system contracts, custom contracts, or off-chain services. Use it on a **new idea** or an **existing codebase**. `blockchain-dev` detects your stack, adapts to your project's conventions, and routes each task to the skill that owns it. When no skill fits, **`build-skill` creates one**: a new suite skill, or a project-local skill that captures your team's way of working. That way the suite grows with your needs.
 
 The skills use the open [Agent Skills](https://agentskills.io) format (`SKILL.md`). They ship as a **Claude Code plugin** and also work in **Codex, GitHub Copilot, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro** and other agents that read `SKILL.md`.
 
@@ -118,7 +118,11 @@ blockchain-dev                         L0  entry point: reads CHAIN.md and route
 | L4 | [`stack-cosmos-ignite`](skills/stack-cosmos-ignite/): Cosmos SDK with Ignite CLI (v29 stable / v30) | ✅ |
 | L4 | [`stack-cosmos-evm`](skills/stack-cosmos-evm/): Cosmos EVM via the Ignite EVM app | ✅ |
 | L4 | [`stack-cosmos-apps`](skills/stack-cosmos-apps/): Ignite Apps (Hermes, CosmWasm, Spaceship, Network, Evolve, ...) | ✅ |
-| L4 | `stack-evm-l1`, `stack-rollup-op`, `stack-rollup-orbit`, `stack-rollup-zk`, any other stack via `build-stack-adapter` | planned |
+| L4 | [`stack-evm-l1`](skills/stack-evm-l1/): own EVM L1 (Besu QBFT, PoS beacon chain, reth SDK, PoSA fork, Avalanche L1) | ✅ |
+| L4 | [`stack-rollup-op`](skills/stack-rollup-op/): OP Stack (op-deployer, op-node + op-reth, fault proofs, op-conductor) | ✅ |
+| L4 | [`stack-rollup-orbit`](skills/stack-rollup-orbit/): Arbitrum chains / Orbit (chain SDK, BoLD, AnyTrust, Stylus, AEP) | ✅ |
+| L4 | [`stack-rollup-zk`](skills/stack-rollup-zk/): ZK Stack (ZKsync OS, zkstack, Airbender, Gateway, Prividium) | ✅ |
+| L4 | any other stack (Substrate, Avalanche L1, Solana/SVM, Move, custom Rust/Go, ...) via `build-stack-adapter` | on demand |
 | L5 | [`quality-security`](skills/quality-security/): threat model, keys, SDLC, audits, bounties, incident response | ✅ |
 | L5 | [`quality-testing`](skills/quality-testing/): traceability, multi-node, chaos, determinism, performance | ✅ |
 | L5 | [`quality-formal-verification`](skills/quality-formal-verification/): Quint/TLA+, Certora/Halmos/Kani, tested Quint starter | ✅ |
